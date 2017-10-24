@@ -1,17 +1,23 @@
 <grid-layout class="drawer-content">
   <stack-layout>
-  	<label text="Login" tap="navigate" class="{{ selectedPage == 'login' ? 'selected' : '' }}" />
-    <label text="Home" tap="navigate" class="{{ selectedPage == 'home' ? 'selected' : '' }}" />
-    <label text="Products" tap="navigate" class="{{ selectedPage == 'products' ? 'selected' : '' }}" />
-    <label text="Search" tap="navigate" class="{{ selectedPage == 'search' ? 'selected' : '' }}" />
-    <label text="Reference" tap="navigate" class="{{ selectedPage == 'accounts' ? 'selected' : '' }}" />
-     <label text="Accounts" tap="navigate" class="{{ selectedPage == 'accounts' ? 'selected' : '' }}" />
+  	<label id="login" text="Login" tap="navigate" class="{{ selectedPage == 'login' ? 'selected' : '' }}" />
+    <label id = "home" text="Home" tap="navigate" class="{{ selectedPage == 'home' ? 'selected' : '' }}" />
+    <label id="reference" text="Reference" tap="navigate" class="{{ selectedPage == 'reference' ? 'selected' : '' }}" />
+    <label id="products" text="Wellness" tap="navigate" class="{{ selectedPage == 'products' ? 'selected' : '' }}" />
+    <label id="search" text="Search" tap="navigate" class="{{ selectedPage == 'search' ? 'selected' : '' }}" />
+    <label id="healthteam" text="Health Team" tap="navigate" class="{{ selectedPage == 'healthteam' ? 'selected' : '' }}" />
+    
+     <label id="patients" text="Patients" tap="navigate" class="{{ selectedPage == 'patients' ? 'selected' : '' }}" />
+     <label id="findadoc" text="Find a Doc" tap="navigate" class="{{ selectedPage == 'findadoc' ? 'selected' : '' }}" />
     <!--<label text="Settings" tap="navigate" class="{{ selectedPage == 'settings' ? 'selected' : '' }}" />-->
     
    
    <!-- <label text="Tasks" tap="navigate" class="{{ selectedPage == 'tasks' ? 'selected' : '' }}" />-->
-    <label text="Reminders" tap="navigate" class="{{ selectedPage == 'offline' ? 'selected' : '' }}" />
-    <label text="Map" tap="navigate" class="{{ selectedPage == 'offline' ? 'selected' : '' }}" />
+    <!--<label id="tasks" text="Tasks" tap="navigate" class="{{ selectedPage == 'tasks' ? 'selected' : '' }}" />
+    <label id="taskadd" text="Add Task" tap="navigate" class="{{ selectedPage == 'Add Task' ? 'selected' : '' }}" />-->
+    <label id="offline" text="Offline" tap="navigate" class="{{ selectedPage == 'offline' ? 'selected' : '' }}" />
+
+    <label id="map" text="Map" tap="navigate" class="{{ selectedPage == 'map' ? 'selected' : '' }}" />
     <!--<label text="Map" tap="navigate" class="{{ selectedPage == 'map' ? 'selected' : '' }}" />-->
 
   </stack-layout>

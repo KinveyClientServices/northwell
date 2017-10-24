@@ -13,15 +13,15 @@
     </page.actionBar>
     <drawer:rad-side-drawer id="drawer">
         <drawer:rad-side-drawer.mainContent>
-            <ListView id="listview" items="{{ myItems }}" loaded="contentLoaded" separatorColor="#000000">
+            <ListView id="listview" items="{{ myItems }}" itemTap="onItemTap" loaded="contentLoaded" separatorColor="#000000">
                 <ListView.itemTemplate>
                     <GridLayout columns="75,*" rows="*">
-                        <Label text="&#xe971;" class="icon" row="0" col="0" style="text-align: center; vertical-align: center; color: #fff; font-size: 20; background-color: #f1582c;"/>
+                        <Label text="&#xeadf;" class="icon" row="0" col="0" style="text-align: center; vertical-align: center; color: #fff; font-size: 20; background-color: #f1582c;"/>
                     <StackLayout orientation="vertical" textAlignment="right" style.backgroundColor="#A6D3EB" row="0" col="1">
                       
                 
-                        <Label text="{{ accountname, accountname }}" textAlignment="right" fontAttributes="Bold" />
-                       <Label text="{{ accountcompany, accountcompany }}" textAlignment="right" class="h3"/>
+                        <Label text="{{ prettyname, prettyname }}" textAlignment="right" fontAttributes="Bold" style="text-align: left; vertical-align: center; color: #000; font-size: 14;"/>
+                       <!--<Label text="{{ accountcompany, accountcompany }}" textAlignment="right" class="h3"/>-->
                     </StackLayout>
                     </GridLayout>
                 </ListView.itemTemplate>

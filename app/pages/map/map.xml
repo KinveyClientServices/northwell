@@ -4,7 +4,8 @@
   xmlns:widgets="shared/widgets" 
   xmlns:lv="nativescript-telerik-ui/listview" 
   xmlns:statusbar="nativescript-statusbar"
-  loaded="pageLoaded">
+  xmlns:map="nativescript-mapbox"
+  loaded="onPageLoaded">
   <statusbar:StatusBar ios:barStyle="light" />
     <page.actionBar>
         <action-bar title="Map">
@@ -18,7 +19,26 @@
     </page.actionBar>
     <drawer:rad-side-drawer id="drawer">
         <drawer:rad-side-drawer.mainContent>
-           
+           <StackLayout>
+    <!--<Label text="Locations" class="title"/>-->
+    <GridLayout id="mygrid" columns="auto, 120" rows="60, 60" width="260" height="60" style.backgroundColor="lightgray" >
+    <TextField id="distance" text="{{ myDistance }}" hint="distance" row="0" col="0" /> 
+    <Button class="btn btn-outline" tap="changeMe" text="submit" row="0" col="1"/>
+    </GridLayout>
+    <ContentView height="450" width="320">
+      <!-- IMPORTANT: plugin version 3 uses :MapboxView, lower versions use :Mapbox -->
+      <map:MapboxView
+          accessToken="pk.eyJ1IjoiZGVsYWNleSIsImEiOiJjajcweDJmeDAwMDE4MzJtaGVndzF0bGZ1In0.dGKuPb6N7w4bSz6HWEU2QA"
+          mapStyle="satellite-streets"
+          latitude="38.0000"
+          longitude="-97.0000"
+          zoomLevel="2"
+          showUserLocation="false"
+          mapReady="onMapReady">
+      </map:MapboxView>
+    </ContentView>
+  </StackLayout>
+
     
         </drawer:rad-side-drawer.mainContent>
         <drawer:rad-side-drawer.drawerContent>

@@ -16,7 +16,7 @@ ProductsPage.prototype.contentLoaded = function(args) {
     var page = args.object;
     var array = new observableArray.ObservableArray();
 
-    var dataStore = Kinvey.DataStore.collection('products', Kinvey.DataStoreType.Network);
+    var dataStore = Kinvey.DataStore.collection('wellness', Kinvey.DataStoreType.Network);
 
     // fetch wellness data
     //

@@ -18,7 +18,22 @@
     </page.actionBar>
     <drawer:rad-side-drawer id="drawer">
         <drawer:rad-side-drawer.mainContent>
-          
+          <ListView id="listview" items="{{ myItems }}" loaded="contentLoaded" separatorColor="#000000">
+                <ListView.itemTemplate>
+                    <GridLayout columns="75,*" rows="*">
+                        <Label text="&#xe9cd;" class="icon" row="0" col="0" style="text-align: center; vertical-align: center; color: #fff; font-size: 20; background-color: #f1582c;" />
+                        <StackLayout orientation="vertical" textAlignment="right" style.backgroundColor="#A6D3EB" row="0" col="1">
+                            <Label text="{{ action, action }}" textAlignment="right" fontAttributes="Bold" />
+                            <Label text="{{ duedate, duedate }}" textAlignment="right" class="h3" />
+                            <Label text="{{ completed, completed }}" textAlignment="right" class="h3" />
+
+                        </StackLayout>
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+            
+            <lv:RadListView.footerItemTemplate>
+            </lv:RadListView.footerItemTemplate>
     
         
         </drawer:rad-side-drawer.mainContent>

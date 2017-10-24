@@ -1,0 +1,35 @@
+<page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:drawer="nativescript-telerik-ui/sidedrawer" xmlns:widgets="shared/widgets" xmlns:lv="nativescript-telerik-ui/listview" xmlns:statusbar="nativescript-statusbar" loaded="onPageLoad" xmlns:dd="nativescript-drop-down">
+    <statusbar:StatusBar ios:barStyle="light" class="page" />
+    <page.actionBar>
+        <action-bar title="Find a Doctor">
+            <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
+            <action-bar.actionItems>
+                <ios>
+                    <action-item icon="res://ic_menu" ios.position="left" tap="toggleDrawer" />
+                    <action-item ios.systemIcon="13" ios.position="right" tap="refreshMe" />
+                </ios>
+            </action-bar.actionItems>
+        </action-bar>
+    </page.actionBar>
+    <drawer:rad-side-drawer id="drawer">
+        <drawer:rad-side-drawer.mainContent>
+            <GridLayout rows="auto, auto, auto, auto, auto" columns="*" loaded="contentLoaded">
+                <TextField id="gender" hint="Gender" row="0" colSpan="2" fontSize="18" verticalAlignment="bottom" textWrap="true" autocapitalizationType="none" class="input input-border" />
+                
+                <TextField hint="FAP" id="fap" row="1" colSpan="2" fontSize="18" verticalAlignment="bottom" textWrap="true" autocapitalizationType="none" class="input input-border" />
+
+                <TextField hint="City" id="city" row="2" colSpan="4" fontSize="18" verticalAlignment="bottom" textWrap="true" autocapitalizationType="none" class="input input-border" />
+
+                <TextField hint="MDGroup" id="mdgroup" row="3" colSpan="2" fontSize="18" verticalAlignment="bottom" textWrap="true" autocapitalizationType="none" class="input input-border" />
+
+                <Button class="btn btn-outline" text="Find" tap="findMe" row="4" colSpan="2"/>
+                
+               
+                
+            </GridLayout>
+        </drawer:rad-side-drawer.mainContent>
+        <drawer:rad-side-drawer.drawerContent>
+            <widgets:drawer-content />
+        </drawer:rad-side-drawer.drawerContent>
+    </drawer:rad-side-drawer>
+</page>

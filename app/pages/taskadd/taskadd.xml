@@ -1,0 +1,33 @@
+<page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:drawer="nativescript-telerik-ui/sidedrawer" xmlns:widgets="shared/widgets" xmlns:lv="nativescript-telerik-ui/listview" xmlns:statusbar="nativescript-statusbar" xmlns:dd="nativescript-drop-down" loaded="onPageLoaded">
+    <statusbar:StatusBar ios:barStyle="light" />
+    <page.actionBar>
+        <action-bar title="Add Task">
+            <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
+            <action-bar.actionItems>
+                <ios>
+                    <action-item icon="res://ic_menu" ios.position="left" tap="toggleDrawer" />
+                </ios>
+            </action-bar.actionItems>
+        </action-bar>
+    </page.actionBar>
+    <drawer:rad-side-drawer id="drawer">
+        <drawer:rad-side-drawer.mainContent>
+            
+            <!--<Switch checked="{{ isComplete }}" />-->
+
+           <StackLayout class="form" orientation="vertical" loaded="contentLoaded">
+                <Image width="25%" src="~/img/list.png" row="0" col="0" />
+                <TextField class="input input-border" id="action" text="{{ myAction }}" hint="task" row="1" /> 
+                <TextField class="input input-border" id="duedate" text="{{ myDueDate }}" hint="due date" row="2"  /> 
+
+                <Switch checked="{{ isComplete }}" row="3"/>
+                <Button class="btn btn-outline" tap="changeMe" text="submit" row="4" colSpan="2"/>
+                
+            </StackLayout>
+
+        </drawer:rad-side-drawer.mainContent>
+        <drawer:rad-side-drawer.drawerContent>
+            <widgets:drawer-content />
+        </drawer:rad-side-drawer.drawerContent>
+    </drawer:rad-side-drawer>
+</page>

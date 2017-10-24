@@ -15,7 +15,7 @@ label {
   padding-top: 20;
 }
 .drawer-content label {
-  font-size: 20;
+  font-size: 16;
   margin: 10 0 15 25;
 }
 .selected {
@@ -43,6 +43,13 @@ Page {
 TextField {
     margin: 10;
     padding: 10;
+    border-style: solid;
+    border-bottom: thick dotted #ff0000;
+}
+
+.taskinput {
+  border-style: solid;
+    border-bottom: thick dotted #ff0000;
 }
 
 #tagline {

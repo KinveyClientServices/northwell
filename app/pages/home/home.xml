@@ -3,12 +3,13 @@
   xmlns:drawer="nativescript-telerik-ui/sidedrawer"
   xmlns:widgets="shared/widgets"
   xmlns:statusbar="nativescript-statusbar"
-  loaded="pageLoaded">
+  loaded="contentLoaded"
+  navigatingTo="navigatingTo">
 
   <statusbar:StatusBar ios:barStyle="light" />
 
   <page.actionBar>
-    <action-bar title="Home">
+    <action-bar title="Home" backgroundColor="{{global.headerColor}}">
 
       <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
       <action-bar.actionItems>
@@ -26,7 +27,7 @@
 
 
       <!-- Home page contents -->
-      <stack-layout loaded="contentLoaded">
+      <stack-layout>
         <image src="{{ brand.NLogoFileName }}" id="logo" width="75%" margin="20 0 0 0" />
         <label id="tagline" margin="20" horizontalAlignment="center" textWrap="true" class="Tagline" text="{{ brand.HomeScreenText }}" />
 

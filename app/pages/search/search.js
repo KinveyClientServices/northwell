@@ -5,7 +5,7 @@ var Observable = require("data/observable").Observable;
 var observableArray = require("data/observable-array");
 var observable = require("data/observable");
 var Kinvey = require('kinvey-nativescript-sdk').Kinvey;
-
+var array = new observableArray.ObservableArray();
 
 
 var SearchPage = function() {};
@@ -13,17 +13,18 @@ SearchPage.prototype = new BasePage();
 SearchPage.prototype.constructor = SearchPage;
 
 var viewModel = new Observable();
+var model = { img: "" };
 
 // Place any code you want to run when the home page loads here.
 SearchPage.prototype.contentLoaded = function(args) {
     console.log('search loaded');
 
 
-    var array = new observableArray.ObservableArray();
+    
 
 
 
-    var dataStore = Kinvey.DataStore.collection('products', Kinvey.DataStoreType.Network);
+    var dataStore = Kinvey.DataStore.collection('wellness', Kinvey.DataStoreType.Network);
     var stream = dataStore.find();
     stream.subscribe(function onNext(entities) {
     //console.log(JSON.stringify(entities));
@@ -36,20 +37,22 @@ SearchPage.prototype.contentLoaded = function(args) {
     }
 
     console.log('array length = ' + array.length);
-    var page = args.object;
-    array.push("WE MAKE IT EASY TO ACCESS YOUR EXISTING DATA");
-    array.push("PROTECT YOUR USERS AND SECURE YOUR DATA");
+    //var page = args.object;
+    //array.push("WE MAKE IT EASY TO ACCESS YOUR EXISTING DATA");
+    //array.push("PROTECT YOUR USERS AND SECURE YOUR DATA");
 
     //array.push(entities);
     viewModel.set("items", array);
     viewModel.set("selectedIndex", 1);
+    viewModel.set("Nimg", "");
+    viewModel.set("title", "");
     page.bindingContext = viewModel;
 
 
     }, function onError(error) {
         console.log(error);
     }, function onComplete() {
-        console.log('demobranding data complete');
+        console.log('product data complete');
         console.log( 'on complete array length = ' + array.length);
     });
 
@@ -72,21 +75,31 @@ SearchPage.prototype.dropDownSelectedIndexChanged = function(args) {
 
     // find  entity matching title
     //
-    var dataStore = Kinvey.DataStore.collection('products', Kinvey.DataStoreType.Network);
-    console.log(args);
+    var dataStore = Kinvey.DataStore.collection('wellness', Kinvey.DataStoreType.Network);
+    console.dir(args);
+    //console.dir(array);
+    console.log(array.length);
+    console.log(array._array[args.newIndex]);
 
-    var output = '';
+    /*var output = '';
     for (var property in args) {
         output += property + ': ' + args[property] + '; ';
     }
-    alert(output);
+    alert(output);*/
 
-
+    console.log(args.object.selectedIndex);
     var query = new Kinvey.Query();
-    query.equalTo('title', "CHOOSE YOUR OWN CLOUD: PUBLIC OR PRIVATE");
+    query.equalTo('title', array._array[args.newIndex]);
     var stream = dataStore.find(query);
     stream.subscribe(function onNext(entities) {
         console.log(entities);
+        console.log(entities.length);
+
+        // bind to UI
+        //
+        viewModel.set("img", entities[0].img);
+        viewModel.set("description", entities[0].description);
+
     }, function onError(error) {
         console.log(error);
     }, function onComplete() {

@@ -1,0 +1,48 @@
+<page xmlns="http://schemas.nativescript.org/tns.xsd" xmlns:drawer="nativescript-telerik-ui/sidedrawer" xmlns:widgets="shared/widgets" xmlns:lv="nativescript-telerik-ui/listview" xmlns:statusbar="nativescript-statusbar" loaded="onPageLoad" >
+    <statusbar:StatusBar ios:barStyle="light" />
+    <page.actionBar>
+        <action-bar title="Selected Doctor">
+            <navigation-button icon="res://ic_menu" tap="toggleDrawer" ios:visibility="collapsed" />
+            <action-bar.actionItems>
+                <ios>
+                    <!--<action-item icon="res://ic_back" ios.position="left" tap="goBack" />-->
+                    <!--<action-item ios.systemIcon="19" ios.position="left" tap="addMe" />-->
+                     <NavigationButton text="back" tap="goBack" />
+                </ios>
+            </action-bar.actionItems>
+        </action-bar>
+    </page.actionBar>
+    <drawer:rad-side-drawer id="drawer">
+        <drawer:rad-side-drawer.mainContent>
+            <StackLayout class="form">
+    <StackLayout class="input-field">
+        <Label text="Doctor ID" class="label font-weight-bold m-b-5"></Label>
+        <Label text="{{doctor.doc_id}}" fontAttributes="Bold"></Label>
+        <!--<TextField #email="ngModel" [(ngModel)]="doctor.doc_id" class="input"></TextField>-->
+        <StackLayout class="hr-light"></StackLayout>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <Label text="Doctor" class="label font-weight-bold m-b-5"></Label>
+        <Label text="{{doctor.fullname}}" fontAttributes="Bold"></Label>
+        <StackLayout class="hr-light"></StackLayout>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <Label text="Accepting New Patients?" class="label font-weight-bold m-b-5"></Label>
+        <Label text="{{doctor.accepting_new_patients}}" fontAttributes="Bold"></Label>
+        <StackLayout class="hr-light"></StackLayout>
+    </StackLayout>
+    <StackLayout class="input-field">
+        <Label text="Languages" class="label font-weight-bold m-b-5"></Label>
+        <Label text="{{doctor.languages}}" fontAttributes="Bold"></Label>
+        <StackLayout class="hr-light"></StackLayout>
+    </StackLayout>
+   
+</StackLayout>
+            <lv:RadListView.footerItemTemplate>
+            </lv:RadListView.footerItemTemplate>
+        </drawer:rad-side-drawer.mainContent>
+        <drawer:rad-side-drawer.drawerContent>
+            <widgets:drawer-content />
+        </drawer:rad-side-drawer.drawerContent>
+    </drawer:rad-side-drawer>
+</page>

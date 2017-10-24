@@ -15,7 +15,7 @@
 }
 TextField {
   border-width: 1;
-  border-color: #6E595C;
+  border-color: #6E595C;;
   margin-bottom: 20;
 }
 .submit-button {

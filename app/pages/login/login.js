@@ -18,8 +18,15 @@ exports.pageLoaded = function(args) {
     Page = args.object;
 };
 
-exports.navigateTo = function(args) {
+LoginPage.prototype.navigateTo = function(args) {
     console.log('HERE');
+
+    var page = args.object;
+    try {
+    
+} catch (e) {
+    console.log(e);
+}
 };
 
 exports.register = function() {
@@ -95,7 +102,7 @@ LoginPage.prototype.signInMIC = function(args) {
     //
     Kinvey.User.loginWithMIC('http://localhost:8100', Kinvey.AuthorizationGrant.AuthorizationCodeLoginPage, { version: 'v2' })
         .then(function(user) {
-            console.log(user);
+            console.dir(user);
             topmost().navigate("pages/home/home");
         }).catch(function(error) {
             console.log(error);

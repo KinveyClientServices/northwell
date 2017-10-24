@@ -19,9 +19,22 @@ AccountsPage.prototype.contentLoaded = function(args) {
 
     var query = new Kinvey.Query();
 query.equalTo('mimeType', 'application/pdf');
-var promise = Kinvey.Files.find()
+var promise = Kinvey.Files.find(query)
   .then(function(files) {
-    console.log(files);
+    console.dir(files[0]);
+
+    while(myItems.length > 0 ) {
+                myItems.pop();
+            }
+            for (i=0;i<files.length;i++) {
+                console.log(files[i]);
+                myItems.push(files[i]);
+            }
+
+            console.log( String.fromCharCode(0xe903));
+
+            tmpobservable.set("myItems", myItems);
+            page.bindingContext = tmpobservable;
   })
   .catch(function(error) {
     console.log(error);
@@ -80,6 +93,22 @@ AccountsPage.prototype.refreshMe = function(args) {
     });
 };
 
+AccountsPage.prototype.onItemTap = function(args) {
+    console.log('tapped reference item');
+    const tappedItem = args.view.bindingContext;
+
+    topmost().navigate({
+        moduleName: "pages/ref-detail/ref-detail",
+        context: tappedItem,
+        animated: true,
+        transition: {
+            name: "slide",
+            duration: 200,
+            curve: "ease"
+        }
+    });
+}
+
 function onPageLoad(args) {
     console.log('doctors page loaded');
 
@@ -87,3 +116,4 @@ function onPageLoad(args) {
 
 module.exports = new AccountsPage();
 exports.onPageLoad = onPageLoad;
+//exports.onItemTap = onItemTap;
